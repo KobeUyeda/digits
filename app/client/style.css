@@ -28,6 +28,10 @@ body .navbar {
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
 }
 
+.navbar a.nav-link.active {
+    color: var(--matr-navbar-highlight-text);
+}
+
 footer, footer a {
   color: var(--matr-navbar-text-color);
 }
