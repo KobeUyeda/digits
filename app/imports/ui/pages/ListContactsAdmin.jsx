@@ -13,7 +13,7 @@ const ListContacts = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Contacts.userPublicationName);
+    const subscription = Meteor.subscribe(Contacts.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
@@ -29,7 +29,7 @@ const ListContacts = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Contacts</h2>
+            <h2>List Contacts (Admin)</h2>
           </Col>
         </Col>
         <Row>

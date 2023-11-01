@@ -18,6 +18,9 @@ const Contact = ({ contact }) => (
       <Card.Text>
         {contact.description}
       </Card.Text>
+      <footer className="blockquote-footer">
+        {contact.owner}
+      </footer>
     </Card.Body>
   </Card>
 );
@@ -30,6 +33,7 @@ Contact.propTypes = {
     image: PropTypes.string,
     address: PropTypes.string,
     description: PropTypes.string,
+    owner: PropTypes.string,
   }).isRequired,
 };
 
