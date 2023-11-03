@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const Contact = ({ contact }) => (
@@ -21,6 +22,7 @@ const Contact = ({ contact }) => (
       <footer className="blockquote-footer">
         {contact.owner}
       </footer>
+      <Link to={`/edit/${contact._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
@@ -34,6 +36,7 @@ Contact.propTypes = {
     address: PropTypes.string,
     description: PropTypes.string,
     owner: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
