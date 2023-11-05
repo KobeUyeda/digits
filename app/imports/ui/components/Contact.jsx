@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Note from './Notes';
+import AddNote from './AddNotes';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Contact = ({ contact }) => (
+const Contact = ({ contact, notes }) => (
   <Card className="h-100">
     <Card.Header>
       <Image src={contact.image} width={75} />
@@ -22,6 +24,10 @@ const Contact = ({ contact }) => (
       <footer className="blockquote-footer">
         {contact.owner}
       </footer>
+      <ListGroup variant="flush">
+        {notes.map((note) => <Note key={note._id} note={note} />)}
+      </ListGroup>
+      <AddNote Owner={contact.owner} ContactId={contact._id} />
       <Link to={`/edit/${contact._id}`}>Edit</Link>
     </Card.Body>
   </Card>
@@ -38,6 +44,13 @@ Contact.propTypes = {
     owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
+  notes: PropTypes.arrayOf(PropTypes.shape({
+    createdAt: PropTypes.instanceOf(Date),
+    note: PropTypes.string,
+    contactId: PropTypes.string,
+    owner: PropTypes.string,
+    _id: PropTypes.string,
+  })).isRequired,
 };
 
 export default Contact;
